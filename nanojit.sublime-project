@@ -1,0 +1,40 @@
+{
+	"folders":
+	[
+		{
+			"path": "/Users/quarnster/code/nanojit"
+		}
+	],
+    "build_systems":
+    [
+        {
+            "name": "nanojit OSX",
+            "cmd": ["make"],
+            "file_regex": "^(..[^:]*):([0-9]+):?([0-9]+)?:? (.*)$",
+            "working_dir": "${project_path}/build",
+            "variants":
+             [
+                {
+                    "name": "clean",
+                    "cmd": ["make", "clean"]
+                }
+            ]
+        }
+    ],
+    "settings":
+    {
+        "sublimeclang_options":
+        [
+            "-Wall",
+            "-Wno-overloaded-virtual",
+            "-I/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/llvm-gcc-4.2/lib/gcc/i686-apple-darwin11/4.2.1/include/",
+            "-I/usr/local/include",
+            "-I${folder:${project_path:main.cpp}}/nanojit",
+            "-I${folder:${project_path:main.cpp}}/hack",
+            "-ferror-limit=0",
+            "-DFEATURE_NANOJIT",
+            "-DAVMPLUS_AMD64",
+            "-DNANOJIT_64BIT"
+        ]
+    }
+}
