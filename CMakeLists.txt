@@ -5,6 +5,7 @@ include_directories(nanojit hack hack/vprof)
 set(CMAKE_CXX_FLAGS "-DFEATURE_NANOJIT -DAVMPLUS_AMD64 -DNANOJIT_64BIT -DVMCFG_NANOJIT")
 
 add_executable(test
+    main.cpp
     core/LirHelper.cpp
     nanojit/Allocator.cpp
     nanojit/Assembler.cpp

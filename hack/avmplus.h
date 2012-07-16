@@ -7,6 +7,7 @@
 #include <stdlib.h>
 #include <stdarg.h>
 #include <stdio.h>
+#include <assert.h>
 
 namespace avmplus
 {
@@ -72,6 +73,17 @@ static inline bool operator==(const float4_t& self, const float4_t& other)
 #define VMPI_strlen strlen
 
 #define PERFM_NVPROF(a, b)
+
+#define AvmAssert assert
+
+#define mmfx_alloc(bytes) malloc(bytes)
+#define mmfx_free(pointer) ::free(pointer)
+
+
+#define AVMPI_allocateCodeMemory(bytes) malloc(bytes)
+#define AVMPI_freeCodeMemory(addr, bytes) ::free(addr)
+#define AVMPI_makeCodeMemoryExecutable(addr, nbytes, read)
+
 
 static inline int VMPI_getVMPageSize()
 {

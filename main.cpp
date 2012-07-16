@@ -5,11 +5,7 @@
 #include "nanojit.h"
 
 using namespace nanojit;
-/*
 const uint32_t CACHE_SIZE_LOG2 = 20;
-
-static avmplus::GC gc = avmplus::GC();
-static avmplus::AvmCore core = avmplus::AvmCore();
 
 int main()
 {
@@ -19,7 +15,7 @@ int main()
 #else
     lc.lcbits = 0;
 #endif
-
+/*
     // Set up the basic Nanojit objects.
     Allocator *alloc = new VMAllocator();
     CodeAlloc *codeAlloc = new CodeAlloc();
@@ -72,6 +68,7 @@ int main()
     typedef JS_FASTCALL int32_t (*AddTwoFn)(int32_t);
     AddTwoFn fn = reinterpret_cast<AddTwoFn>(f->code());
     printf("2 + 5 = %d\n", fn(5));
+*/
     return 0;
 }
-*/
+
