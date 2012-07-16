@@ -2,9 +2,10 @@ cmake_minimum_required(VERSION 2.8)
 
 include_directories(nanojit hack hack/vprof)
 
-set(CMAKE_CXX_FLAGS "-DFEATURE_NANOJIT -DAVMPLUS_AMD64 -DNANOJIT_64BIT")
+set(CMAKE_CXX_FLAGS "-DFEATURE_NANOJIT -DAVMPLUS_AMD64 -DNANOJIT_64BIT -DVMCFG_NANOJIT")
 
 add_executable(test
+    core/LirHelper.cpp
     nanojit/Allocator.cpp
     nanojit/Assembler.cpp
     nanojit/CodeAlloc.cpp
