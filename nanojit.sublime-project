@@ -23,6 +23,8 @@
     ],
     "settings":
     {
+        "sublimegdb_commandline": "gdb --interpreter=mi ./test",
+        "sublimegdb_workingdir": "${folder:${project_path:main.cpp}}/build",
         "sublimeclang_options":
         [
             "-Wall",
@@ -34,7 +36,11 @@
             "-ferror-limit=0",
             "-DFEATURE_NANOJIT",
             "-DAVMPLUS_AMD64",
-            "-DNANOJIT_64BIT"
-        ]
+            "-DNANOJIT_64BIT",
+            "-DVMCFG_NANOJIT",
+            "-DDEBUG",
+            "-D_DEBUG",
+            "-DNJ_VERBOSE"
+       ]
     }
 }

@@ -4,6 +4,12 @@ include_directories(nanojit hack hack/vprof)
 
 set(CMAKE_CXX_FLAGS "-DFEATURE_NANOJIT -DAVMPLUS_AMD64 -DNANOJIT_64BIT -DVMCFG_NANOJIT")
 
+if(${CMAKE_BUILD_TYPE} MATCHES "Debug")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -DDEBUG -D_DEBUG -DNJ_VERBOSE")
+endif()
+
+message(${CMAKE_CXX_FLAGS})
+
 add_executable(test
     main.cpp
     core/LirHelper.cpp
