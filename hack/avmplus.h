@@ -125,6 +125,7 @@ static inline bool operator==(const float4_t& self, const float4_t& other)
 #define mmfx_alloc(bytes) malloc(bytes)
 #define mmfx_free(pointer) ::free(pointer)
 
+#define FASTCALL
 
 #define AVMPI_allocateCodeMemory(bytes)  mmap(NULL, bytes, PROT_READ | PROT_WRITE | PROT_EXEC, MAP_PRIVATE | MAP_ANON, -1, 0)
 #define AVMPI_freeCodeMemory(addr, bytes) munmap(addr, bytes)

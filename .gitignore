@@ -1,2 +1,3 @@
-build/*
+build*
+bin
 *.sublime-workspace
