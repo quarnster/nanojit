@@ -19,10 +19,9 @@ int main()
     Config config;
     Assembler assm(codeAlloc, alloc, alloc, &lc, config);
 
-
-
     LirBuffer *buf = new (alloc) LirBuffer(alloc);
     LirBufWriter out(buf, config);
+    buf->abi = ABI_CDECL;
 
 #ifdef DEBUG
     LInsPrinter p(alloc, 1024);
@@ -40,6 +39,7 @@ int main()
     f.lastIns = out.ins1(LIR_reti, result);
 
     assm.compile(&f, alloc, optimize verbose_only(, &p));
+    printf("error: %d\n", assm.error());
 
     typedef int32_t (*AddTwoFn)(int32_t);
     AddTwoFn fn = reinterpret_cast<AddTwoFn>(f.code());

@@ -2,7 +2,8 @@
 	"folders":
 	[
 		{
-			"path": "/Users/quarnster/code/nanojit"
+			"path": "/Users/quarnster/code/nanojit",
+            "folder_exclude_patterns": ["build"]
 		}
 	],
     "build_systems":
