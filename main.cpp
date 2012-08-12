@@ -15,8 +15,9 @@ int main()
     lc.lcbits = 0;
 #endif
     Allocator alloc;
-    CodeAlloc codeAlloc;
     Config config;
+    CodeAlloc codeAlloc(&config);
+
     Assembler assm(codeAlloc, alloc, alloc, &lc, config);
 
     LirBuffer *buf = new (alloc) LirBuffer(alloc);

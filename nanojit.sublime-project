@@ -3,7 +3,7 @@
 	[
 		{
 			"path": "/Users/quarnster/code/nanojit",
-            "folder_exclude_patterns": ["build*", "bin"]
+            "folder_exclude_patterns": ["build*", "bin", "libs"]
 		}
 	],
     "build_systems":

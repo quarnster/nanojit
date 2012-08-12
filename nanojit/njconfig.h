@@ -107,6 +107,9 @@ namespace nanojit
         // If true, compiler will insert randomly choosen no-op instructions at random locations within a compiled method (x86-32 only)
         uint32_t harden_nop_insertion:1;
 
+		// Check protection flags when allocating memory for compiled code.
+        uint32_t check_page_flags:1;
+
         inline bool
         use_cmov()
         {

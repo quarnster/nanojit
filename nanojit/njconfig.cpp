@@ -95,6 +95,7 @@ namespace nanojit
         cseopt = true;
         harden_function_alignment = false;
         harden_nop_insertion = false;
+        check_page_flags = false;
 
 #ifdef NANOJIT_IA32
         setCpuFeatures(this);

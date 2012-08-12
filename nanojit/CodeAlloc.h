@@ -141,6 +141,8 @@ namespace nanojit
         /** Number of bytes to request from VMPI layer, always a multiple of the page size */
         const size_t bytesPerAlloc;
 
+        const Config* _config;
+
         /** remove one block from a list */
         static CodeList* removeBlock(CodeList* &list);
 
@@ -190,7 +192,7 @@ namespace nanojit
         bool checkChunkMark(void* addr, size_t nbytes, bool isExec);
 
     public:
-        CodeAlloc();
+        CodeAlloc(const Config* config);
         ~CodeAlloc();
 
         /** return all the memory allocated through this allocator to the gcheap. */

@@ -62,12 +62,13 @@ namespace nanojit
     // Sanity checks that should remain enabled in release builds.
     #define ABORT_UNLESS(cond) do { NanoAssert(cond); if (!(cond)) VMPI_abort(); } while(0)
 
-    CodeAlloc::CodeAlloc()
+    CodeAlloc::CodeAlloc(const Config* config)
         : heapblocks(0)
         , availblocks(0)
         , totalAllocated(0)
         , bytesPerPage(VMPI_getVMPageSize())
         , bytesPerAlloc(pagesPerAlloc * bytesPerPage)
+        , _config(config)
     {
     }
 
@@ -520,8 +521,10 @@ extern  "C" void sync_instruction_memory(caddr_t v, u_int len);
             for (CodeList* b = hb->lower; b != 0; b = b->lower) {
                 NanoAssert(b->higher->lower == b);
             }
-            bool b = checkChunkMark(firstBlock(hb), bytesPerAlloc, hb->isExec);
-            NanoAssertMsg(b, "Chunk access mode differs from that expected");
+            if (_config->check_page_flags) {
+                bool b = checkChunkMark(firstBlock(hb), bytesPerAlloc, hb->isExec);
+                NanoAssertMsg(b, "Chunk access mode differs from that expected");
+            }
         }
         for (CodeList* avail = this->availblocks; avail; avail = avail->next) {
             NanoAssert(avail->isFree && avail->size() >= minAllocSize);

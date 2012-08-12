@@ -774,7 +774,9 @@ Assembler::asm_arg_float(LIns* arg, ParameterRegisters& params)
         _logc->printf("Param.r now: %d (%s)\n",REGNUM(params.r),gpn(params.r)));
     if (params.r <= R3) {
         Register    ra = params.r;
-        Register dm;
+        // FIXME: The intial value shuts up diagnostic for a possibly unitialized
+        // variable, but there really is a problem here that needs to be investigated.
+        Register dm = 0;
 
         if (singlePrecision) {
             NanoAssert(ARM_VFP);

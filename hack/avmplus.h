@@ -10,6 +10,7 @@
 #include <assert.h>
 #include <sys/mman.h>
 
+
 namespace avmplus
 {
     static inline void AvmLog(const char * fmt, ...)
@@ -24,18 +25,8 @@ namespace avmplus
     {
         assert(msg);
     }
-    class AvmLogControl
-    {
-        void printf( const char* format, ... );
-    };
-    enum
-    {
-        ACCSET_NONE,
-        ACCSET_VARS,
-        ACCSET_TAGS,
-        ACCSET_OTHER
-    };
 }
+
 
 #include <iostream>
 class Core
