@@ -22,8 +22,7 @@ endif()
 
 message(${CMAKE_CXX_FLAGS})
 
-add_executable(test
-    main.cpp
+add_library(nanojit
     core/LirHelper.cpp
     nanojit/Allocator.cpp
     nanojit/Assembler.cpp
@@ -42,3 +41,9 @@ add_executable(test
     nanojit/RegAlloc.cpp
     nanojit/njconfig.cpp
 )
+
+add_executable(test
+    main.cpp
+)
+
+target_link_libraries(test nanojit)
