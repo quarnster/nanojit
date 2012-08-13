@@ -19,6 +19,8 @@ if(${CMAKE_BUILD_TYPE} MATCHES "Debug")
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -DDEBUG -D_DEBUG -DNJ_VERBOSE")
 endif()
 
+set(NANOJIT_CXX_FLAGS "${CMAKE_CXX_FLAGS}" CACHE STRING "Nanojit cxx flags")
+
 add_library(nanojit
     core/LirHelper.cpp
     nanojit/Allocator.cpp
