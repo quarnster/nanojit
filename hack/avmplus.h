@@ -25,6 +25,17 @@ namespace avmplus
     {
         assert(msg);
     }
+    class AvmLogControl
+    {
+        void printf( const char* format, ... );
+    };
+    enum
+    {
+        ACCSET_NONE,
+        ACCSET_VARS,
+        ACCSET_TAGS,
+        ACCSET_OTHER
+    };
 }
 
 
