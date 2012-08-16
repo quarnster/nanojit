@@ -9,7 +9,7 @@ int main()
 {
     LogControl lc;
     bool optimize = true;
-#ifdef DEBUG
+#ifdef NJ_VERBOSE
     lc.lcbits = LC_ReadLIR | LC_Native;
 #else
     lc.lcbits = 0;
@@ -24,7 +24,7 @@ int main()
     LirBufWriter out(buf, config);
     buf->abi = ABI_CDECL;
 
-#ifdef DEBUG
+#ifdef NJ_VERBOSE
     LInsPrinter p(alloc, 1024);
     buf->printer = &p;
 #endif

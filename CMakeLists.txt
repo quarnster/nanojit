@@ -3,7 +3,7 @@ cmake_minimum_required(VERSION 2.8)
 project(nanojit)
 include_directories(nanojit hack hack/vprof)
 
-set(CMAKE_CXX_FLAGS "-DFEATURE_NANOJIT -DVMCFG_NANOJIT")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -DFEATURE_NANOJIT -DVMCFG_NANOJIT")
 
 if(NOT ANDROID)
     if( CMAKE_SIZEOF_VOID_P EQUAL 8 )
