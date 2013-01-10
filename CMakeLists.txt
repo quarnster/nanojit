@@ -43,15 +43,18 @@ add_library(nanojit
     nanojit/njconfig.cpp
 )
 
+add_library(njutil
+    lirasm/VMPI.nj/VMPI.cpp
+    lirasm/VMPI.nj/avmplus.cpp
+    lirasm/VMPI.nj/common.cpp
+)
 
 add_executable(lirasm
     lirasm/lirasm/lirasm.cpp
-    lirasm/VMPI.nj/VMPI.cpp
-    lirasm/VMPI.nj/avmplus.cpp
 )
-target_link_libraries(lirasm nanojit)
-#add_executable(test
-#    main.cpp
-#)
+target_link_libraries(lirasm nanojit njutil)
 
-#target_link_libraries(test nanojit)
+add_executable(test
+    main.cpp
+)
+target_link_libraries(test nanojit njutil)
