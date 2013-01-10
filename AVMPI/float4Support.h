@@ -10,10 +10,11 @@
 
 
 #if defined(VMCFG_GENERIC_FLOAT4) || !defined(VMCFG_FLOAT)
+#include <math.h>
 /**
  * Float4 support, no intrinsics
  */
-typedef 
+typedef
 struct float4_t {
     float x, y, z, w;
 } float4_t;
@@ -33,15 +34,15 @@ REALLY_INLINE int32_t f4_eq_i(const float4_t& x1, const float4_t& x2)
 }
 
 // in hardware: vdupq_n_f32/ _mm_set_ps1
-REALLY_INLINE float4_t f4_setall(float v) 
-{ 
+REALLY_INLINE float4_t f4_setall(float v)
+{
     float4_t retval = {v, v, v, v};
     return retval;
 }
 
 // in hardware: vdupq_n_f32, or _mm_sqrt_ps
-REALLY_INLINE float4_t f4_sqrt(const float4_t& v) 
-{ 
+REALLY_INLINE float4_t f4_sqrt(const float4_t& v)
+{
     float4_t retval = { sqrtf(v.x), sqrtf(v.y), sqrtf(v.z), sqrtf(v.w)};
     return retval;
 }

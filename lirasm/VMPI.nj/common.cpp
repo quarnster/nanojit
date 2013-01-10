@@ -10,7 +10,7 @@
 using namespace nanojit;
 using namespace std;
 
-#ifdef AVMPLUS_ARM
+#if defined(AVMPLUS_ARM) && defined(VMCFG_NEON)
 float4_t vsqrtq_f32( float4_t q_x )
 {
     const float4_t q_step_0 = vrsqrteq_f32( q_x );

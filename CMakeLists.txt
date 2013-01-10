@@ -3,7 +3,7 @@ cmake_minimum_required(VERSION 2.8)
 project(nanojit)
 include_directories(nanojit . lirasm/VMPI.nj hack hack/vprof)
 
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -DFEATURE_NANOJIT -DVMCFG_NANOJIT -DVMCFG_FLOAT")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -DFEATURE_NANOJIT -DVMCFG_NANOJIT")
 
 if(NOT ANDROID)
     if( CMAKE_SIZEOF_VOID_P EQUAL 8 )
@@ -12,7 +12,7 @@ if(NOT ANDROID)
         set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -DAVMPLUS_IA32 -DVMCFG_SSE2")
     endif()
 
-    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -DAVMPLUS_UNIX")
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -DVMCFG_FLOAT -DAVMPLUS_UNIX")
 else()
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -DAVMPLUS_ARM -DAVMPLUS_UNIX")
 endif()
@@ -41,6 +41,7 @@ add_library(nanojit
     nanojit/Nativei386.cpp
     nanojit/RegAlloc.cpp
     nanojit/njconfig.cpp
+    AVMPI/float4support.cpp
 )
 
 add_library(njutil
